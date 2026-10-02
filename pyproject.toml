@@ -1,6 +1,6 @@
 [project]
 name = "icalendar-recurrence-expander"
-version = "0.1.0"
+version = "0.1.1"
 description = "Expands RRULE recurrence rules from iCalendar data into concrete datetime instances within a range."
 requires-python = ">=3.10"
 dependencies = []
