@@ -38,3 +38,10 @@ The problem: you have iCalendar RRULE strings and need the actual datetimes, wit
 - `expand_recurrence(dtstart, rrule, range_start, range_end) -> list[datetime]`
 - `parse_rrule(value: str) -> RecurrenceRule`
 - `RecurrenceRule` (dataclass with fields: `freq`, `interval`, `count`, `until`, `byday`, `bymonthday`, `bymonth`, `bysetpos`, `wkst`)
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
